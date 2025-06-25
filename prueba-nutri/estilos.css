@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section {
+  margin: 0 auto;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.section-picture {
+  width: 300px;
+  animation: appearAndRotate 3s ease-out forwards; /* Cambiado el nombre y agregada 'forwards' para que mantenga el estado final */
+  transition: transform 0.3s ease-in-out;
+}
+.section-picture :hover {
+  transform: rotate(360deg);
+}
+
+.section-h1 {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(47, 168, 47);
+  animation: textAppearFromBack 1.5s ease-out forwards;
+}
+
+.section-parrafo {
+  font-size: 20px;
+  color: rgb(101, 172, 101);
+  animation: textAppearFromBack 1.5s ease-out forwards;
+}
+
+@keyframes appearAndRotate {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes textAppearFromBack {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
