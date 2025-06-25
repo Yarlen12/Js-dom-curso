@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="/3-curso-DOM/02-eventos/estilos.css" />
+  </head>
+  <body>
+    <main class="wrapper" data-id="wrapper">
+      <h1>¡Bienvenido 👋, <span data-id="name">Usuario</span>!</h1>
+
+      <form action="/verificacion.php">
+        <input type="text" placeholder="Ingresa tu nombre" />
+        <input type="submit" />
+      </form>
+    </main>
+
+    <section class="section">
+      <button data-id="button-show">Mostrar Seccion</button>
+
+      <button data-id="button-hide">Ocultar Seccion</button>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
