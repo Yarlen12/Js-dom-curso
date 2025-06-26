@@ -1,14 +1,14 @@
-const wrapper = document.querySelector('[data-id="wrapper"]');
+// const wrapper = document.querySelector('[data-id="wrapper"]');
 
-const input = document.querySelector('[type="text"]');
+// const input = document.querySelector('[type="text"]');
 
-const changeUser = document.querySelector('[data-id="name"]');
+// const changeUser = document.querySelector('[data-id="name"]');
 
-const section = document.querySelector(".section");
+// const section = document.querySelector(".section");
 
-const buttonShow = document.querySelector('[data-id="button-show"]');
+// const buttonShow = document.querySelector('[data-id="button-show"]');
 
-const buttonHide = document.querySelector('[data-id="button-hide"]');
+// const buttonHide = document.querySelector('[data-id="button-hide"]');
 
 // input.addEventListener("change", function (e) {
 //   changeUser.textContent = e.target.value;
@@ -185,16 +185,39 @@ const buttonHide = document.querySelector('[data-id="button-hide"]');
 // console.log(element); // Me mostrara todos los elementos que tengan el data-id con sus atributos
 // }
 
-const ButtonHide = document.querySelector(`[data-id="button-hide"]`);
+// const ButtonHide = document.querySelector(`[data-id="button-hide"]`);
 
-const elements = document.querySelectorAll("[data-id]");
+// const elements = document.querySelectorAll("[data-id]");
 
-for (element of elements) {
-  const currentElement = element.matches(`[data-id= "button-show"]`);
+// for (element of elements) {
+//   const currentElement = element.matches(`[data-id="button-show"]`);
 
-  if (currentElement) {
-    console.log(
-      `El boton ${element.nodeName} contiene el valor button-show en su atributo`
-    ); //Esto lo que hara es que al encontrar el elemento button-show pondra en la consola el mensaje de arriba.
+//   if (currentEleent) {
+//     console.log(element); //Deberia de mostrarnos en consola el data-id="button-show" ya que element tiene esos elementos
+//     console.log(
+//       `El boton ${element.nodeName} contiene el valor button-show en su atributo`
+//     ); //Esto lo que hara es que al encontrar el elemento button-show pondra en la consola el mensaje de arriba.
+//   }
+// }
+
+// //Retorna un nodo de tipo elemento que coincida con el selector dado, empieza la busqueda desde el mismo elemento y si no lo encuentra lo va buscando de forma ascendente
+// console.log(input.closest(".wrapper")); // Usamos el closest para que nos retorne su metodo mas cercano, en caso de escribir mal el nombre y no haya coincidencias me va a arrojar un null
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  Event Delegation (Delegacion de eventos nos permite aprovecharnos de la propagacion de eventos para determinar un manejador de eventos a un manejador de nodos que haga una accion predeterminada, en vez de manejar un  manejador de eventos por cada nodo vamos a declarar un manejador de eventos global )
+//  En vez de poner un manejador por boton vamos a poner un manejador por seccion
+
+const section = document.querySelector(`.section`);
+
+function eventDelegation(e) {
+  if (e.target.matches(".button-color")) {
+    const getColor = e.target.getAttribute("data-color"); // Con esto deberia de darnos el atributo de data-color al dar click a uno de los 3 botones
+
+    e.currentTarget.style.backgroundColor = getColor; // Se cambiara el estilo del background  al dar click a un boton, dependiendo a que boton le des click es color que se pondra de background, ya que cada boton tiene un color predeterminado
+
+    // console.log(getColor);
+    // console.log("Diste click a un boton");
   }
+  // console.log(e.target);
 }
+section.addEventListener("click", eventDelegation); //Me deberia devolver las clases y los elementos que hay dentro de section de la clase section
